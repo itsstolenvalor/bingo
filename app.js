@@ -970,7 +970,7 @@ function markup() {
                 <span id="bingo-shuffle-warning">${copy.shuffleWarning}</span>
                 <div class="actions">
                   <button class="button confirmation-cancel" type="button">CANCEL</button>
-                  <button class="button confirmation-confirm" type="button">SHUFFLE</button>
+                  <button class="button confirmation-confirm" type="button">CONFIRM</button>
                 </div>
               </div>
             </div>
