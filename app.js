@@ -666,6 +666,7 @@ var BingoView = class {
 	showShuffleConfirmation() {
 		if (!this.confirmation.hidden) return;
 		this.confirmation.hidden = false;
+		this.shuffleButton.setAttribute("aria-expanded", "true");
 		this.actions.inert = true;
 		this.board.inert = true;
 		this.animateConfirmationScrim(1);
@@ -722,6 +723,7 @@ var BingoView = class {
 		this.confirmationScrimMotion = null;
 		this.confirmationClosing = false;
 		this.confirmation.hidden = true;
+		this.shuffleButton.setAttribute("aria-expanded", "false");
 		this.confirmationScrim.style.opacity = "0";
 		this.confirmationShell.style.height = "";
 		this.actions.inert = false;
@@ -953,14 +955,14 @@ function markup() {
     <main class="wrap">
       <h1>RELEASE RADAR&#10022;</h1>
       <div class="header-action actions" aria-label="Bingo actions">
-        <button class="button shuffle-button glass" type="button" disabled>SHUFFLE</button>
+        <button class="button shuffle-button glass" type="button" aria-controls="bingo-shuffle-confirmation" aria-expanded="false" disabled>SHUFFLE</button>
         <button class="button share-button glass" type="button" disabled><span class="share-label">${copy.share}</span></button>
       </div>
       <div class="board-stage">
         <section class="board-card glass" aria-busy="true">
           <p class="board-status" role="status">${copy.loadingCatalog}</p>
           <div class="board" role="group" aria-label="Bingo board" hidden></div>
-          <div class="shuffle-confirmation" role="dialog" aria-modal="true" aria-labelledby="bingo-shuffle-title" aria-describedby="bingo-shuffle-warning" hidden>
+          <div id="bingo-shuffle-confirmation" class="shuffle-confirmation" role="dialog" aria-modal="true" aria-labelledby="bingo-shuffle-title" aria-describedby="bingo-shuffle-warning" hidden>
             <div class="shuffle-scrim" aria-hidden="true"></div>
             <div class="shuffle-shell">
               <div class="confirmation-panel glass">
