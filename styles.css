@@ -23,6 +23,12 @@ body {
     var(--gradient-middle) 50%,
     var(--gradient-end)
   );
+  --gradient-background: linear-gradient(
+    135deg,
+    rgb(from var(--gradient-start) r g b / 12%),
+    rgb(from var(--gradient-middle) r g b / 12%) 50%,
+    rgb(from var(--gradient-end) r g b / 12%)
+  );
   --glass-layer: rgb(from var(--off-white) r g b / 2%);
   --white-layer: rgb(from var(--off-white) r g b / 20%);
   --dark-layer: rgb(from var(--near-black) r g b / 40%);
@@ -171,6 +177,14 @@ body {
 #bingo .header-action .button {
   width: min(180px, 25%);
   padding: 0 calc(var(--space) * 3);
+}
+
+#bingo .shuffle-button[aria-expanded="true"]::before {
+  background: var(--gradient-background), var(--dark-layer);
+}
+
+#bingo .shuffle-button[aria-expanded="true"]::after {
+  opacity: 1;
 }
 
 #bingo .board-stage {
