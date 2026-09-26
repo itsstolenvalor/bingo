@@ -287,7 +287,7 @@ var BingoController = class {
 		this.view.announce(this.saveWithAnnouncement("A shared Bingo board was loaded."));
 	}
 	saveWithAnnouncement(announcement) {
-		if (!this.state) return announcement;
+		if (!this.state) throw new Error("Saving a Bingo board requires an active board.");
 		if (this.storage.save(this.state)) {
 			this.location.clearBoardHash();
 			return announcement;
