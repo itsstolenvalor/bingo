@@ -477,14 +477,14 @@ body {
   22% {
     border-color: rgb(from var(--gradient-start) r g b / 58%);
     box-shadow:
-      0 0 var(--celebration-cyan-glow) var(--celebration-cyan-color),
+      0 0 var(--celebration-cyan-glow) rgb(from var(--gradient-start) r g b / var(--celebration-cyan-opacity)),
       var(--shadow-surface);
   }
 
   58% {
     border-color: rgb(from var(--gradient-end) r g b / 58%);
     box-shadow:
-      0 0 var(--celebration-purple-glow) var(--celebration-purple-color),
+      0 0 var(--celebration-purple-glow) rgb(from var(--gradient-end) r g b / var(--celebration-purple-opacity)),
       var(--shadow-surface);
   }
 }
