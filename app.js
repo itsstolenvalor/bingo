@@ -858,13 +858,13 @@ var BingoView = class {
 		this.boardCard.style.setProperty("--celebration-lift", `${-scaled(26, 60)}px`);
 		this.boardCard.style.setProperty("--celebration-cyan-glow", `${scaled(34, 100)}px`);
 		this.boardCard.style.setProperty("--celebration-purple-glow", `${scaled(38, 104)}px`);
-		this.boardCard.style.setProperty("--celebration-cyan-color", `rgba(73, 241, 250, ${(.34 + intensity * .24).toFixed(2)})`);
-		this.boardCard.style.setProperty("--celebration-purple-color", `rgba(141, 100, 245, ${(.36 + intensity * .24).toFixed(2)})`);
+		this.boardCard.style.setProperty("--celebration-cyan-opacity", (.34 + intensity * .24).toFixed(2));
+		this.boardCard.style.setProperty("--celebration-purple-opacity", (.36 + intensity * .24).toFixed(2));
 		this.boardCard.style.setProperty("--celebration-tile-duration", `${scaled(900, 1350)}ms`);
 		this.boardCard.style.setProperty("--celebration-card-duration", `${scaled(1700, 2600)}ms`);
 		this.boardCard.classList.remove("is-celebrating");
-		this.board.querySelectorAll(".tile.is-celebrating").forEach((tile) => {
-			tile.classList.remove("is-celebrating");
+		this.board.querySelectorAll(".tile.is-dealing, .tile.is-celebrating").forEach((tile) => {
+			tile.classList.remove("is-dealing", "is-celebrating");
 		});
 		this.boardCard.offsetWidth;
 		winningPositions.forEach((position, order) => {
